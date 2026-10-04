@@ -1,0 +1,39 @@
+JAWABAN PERTANYAAN REFLEKSI
+Praktikum PBO 2 - Pertemuan 3: Komponen GUI dengan Swing dan FlatLaf
+
+Nama : Daffa Masyu Abas
+NPM  : 2410010481
+
+
+1. Perbedaan top-level container, intermediate container, dan atomic component
+
+Ketiganya tersusun bertingkat, seperti rumah, ruangan, dan perabot.
+
+- Top-level container adalah jendela utama yang memiliki bingkai dan judul. Semua komponen lain harus berada di dalamnya. Contoh: JFrame.
+- Intermediate container adalah wadah untuk mengelompokkan dan menata komponen di dalam jendela. Contoh: JPanel.
+- Atomic component adalah komponen yang berinteraksi langsung dengan pengguna dan tidak berfungsi sebagai wadah. Contoh: JButton.
+
+
+2. Mengapa kedua JRadioButton perlu memakai buttonGroup yang sama
+
+JRadioButton yang berdiri sendiri tidak saling mengenal, sehingga semuanya bisa terpilih bersamaan. ButtonGroup mengikat beberapa radio button menjadi satu kelompok. Saat satu dipilih, pilihan lain otomatis terlepas, jadi hanya satu pilihan yang aktif. Ini sesuai dengan data yang memang hanya boleh satu nilai, seperti jenis kelamin atau kelas tiket. Pada eksperimen, ketika properti buttonGroup pada perempuanRadio dikosongkan, kedua radio bisa terpilih sekaligus. Selain itu, baris jenisKelaminGroup.add(perempuanRadio); hilang dari initComponents().
+
+
+3. Kapan memilih JComboBox dibandingkan JRadioButton
+
+Saya memilih JComboBox ketika pilihannya banyak, karena daftarnya terlipat sehingga hemat ruang. Contohnya lima kota tujuan atau program studi. Saya memilih JRadioButton ketika pilihannya sedikit (sekitar dua sampai empat) dan sebaiknya langsung terlihat semuanya tanpa perlu diklik dulu, misalnya jenis kelamin atau kelas tiket. Jika pilihan lebih dari satu boleh dipilih sekaligus, yang cocok adalah JCheckBox.
+
+
+4. Mengapa initComponents() tidak boleh diedit langsung, dan di mana kode tambahan ditulis
+
+Isi initComponents() dibuat otomatis oleh Form Editor NetBeans dari rancangan di tab Design yang tersimpan di file .form. Setiap kali rancangan berubah, NetBeans membuat ulang blok itu. Kode yang diketik manual di dalamnya akan tertimpa atau hilang, dan bisa membuat kode tidak sinkron dengan file .form. Kode tambahan ditulis di luar blok abu-abu, yaitu:
+
+- di konstruktor setelah initComponents(), misalnya untuk placeholder dan tombol default;
+- di dalam isi event handler;
+- di method bantu buatan sendiri;
+- di method main.
+
+
+5. Mengapa FlatLightLaf.setup() harus dipanggil sebelum form dibuat
+
+Look and feel diterapkan pada komponen saat komponen itu dibuat (new dan initComponents()). Jika form dibuat lebih dulu, komponennya sudah memakai tampilan bawaan Swing (Metal) dan tidak otomatis berubah. Karena itu setup() dipanggil di method main sebelum new HaloSwing() atau form lainnya. Saya membuktikannya lewat eksperimen: ketika baris FlatLightLaf.setup(); dihapus, tampilan kembali ke Metal yang terlihat kuno.
