@@ -87,7 +87,7 @@ Saat jendela saya kecilkan sekecil mungkin, isian dan label yang kena duluan: te
 | Keterangan | Isi |
 |---|---|
 | Teman yang menilai | M. Ridho Fadillah (2410010166) |
-| Hasil daftar periksa | ISI jumlah butir terpenuhi dari 8 |
+| Hasil daftar periksa | 8 |
 
 ### Daftar periksa
 
